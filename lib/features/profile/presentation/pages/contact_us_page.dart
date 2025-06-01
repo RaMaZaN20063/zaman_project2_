@@ -40,56 +40,93 @@ class _ContactUsPageState extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Отзыв и придложение'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(15),
-        child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  hintText: "Почта получателя",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+      appBar: AppBar(title: Text('Отзыв и придложение')),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Нам важно ваше мнение!',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 15),
+                Text(
+                  'Помогите нам сделать Zaman ещё лучше. Оставьте отзыв или предложение — мы обязательно учтём его в будущих обновлениях.',
+                  style: TextStyle(fontSize: 17),
+                ),
+                SizedBox(height: 30),
+                Text('Контакт (необязательно)', style: TextStyle(fontSize: 17)),
+                SizedBox(height: 10),
+                TextFormField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: "Почта получателя",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 10),
-              TextFormField(
-                controller: subjectController,
-                decoration: InputDecoration(
-                  hintText: "Тема письма",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                SizedBox(height: 10),
+                Text('Ваш отзыв', style: TextStyle(fontSize: 17)),
+                SizedBox(height: 10),
+                TextFormField(
+                  controller: subjectController,
+                  decoration: InputDecoration(
+                    hintText: "Тема письма",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 10),
-              TextFormField(
-                controller: bodyController,
-                decoration: InputDecoration(
-                  hintText: "Помоги нам совершанствовать наш продукт",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                SizedBox(height: 15),
+                TextFormField(
+                  controller: bodyController,
+                  decoration: InputDecoration(
+                    hintText: "Помоги нам совершанствовать наш продукт",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _onSendPressed,
-                child: Container(
-                  
-                  width: double.infinity,
-                  child: Center(child: Text('Отправить', style: TextStyle(fontSize: 15),)),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _onSendPressed,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF0E4B36), 
+                    foregroundColor: Colors.white, 
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        15,
+                      ), 
+                    ),
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0E4B36),
+                      borderRadius: BorderRadius.circular(
+                        15,
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Отправить',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500, 
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/features/profile/presentation/pages/about_app.dart';
+import 'package:profile_page/features/profile/presentation/pages/about_us.dart';
 import 'package:profile_page/features/profile/presentation/pages/contact_us_page.dart';
+import 'package:profile_page/features/profile/presentation/pages/discount_page.dart';
 import 'package:profile_page/features/profile/presentation/pages/settings_page.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -55,7 +58,9 @@ class ProfilePage extends StatelessWidget {
                     leading: Icon(Icons.discount, color: Colors.grey),
                     title: Text('Получить скидку'),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DiscountPage()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios, size: 20),
                     ),
                   ),
@@ -92,7 +97,9 @@ class ProfilePage extends StatelessWidget {
                     leading: Icon(Icons.people, color: Colors.grey),
                     title: Text('О компаний'),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios, size: 20),
                     ),
                   ),
@@ -100,7 +107,9 @@ class ProfilePage extends StatelessWidget {
                     leading: Icon(Icons.dangerous, color: Colors.grey),
                     title: Text('О приложение'),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutApp()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios, size: 20),
                     ),
                   ),
